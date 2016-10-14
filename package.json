@@ -1,0 +1,23 @@
+{
+  "name": "mpay24-node",
+  "version": "0.0.1",
+  "description": "mPAY24 SDK",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiaslins/mpay24-node.git"
+  },
+  "author": "Tobias Lins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiaslins/mpay24-node/issues"
+  },
+  "homepage": "https://github.com/tobiaslins/mpay24-node#readme",
+  "dependencies": {
+    "soap": "^0.17.0"
+  }
+}
