@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/tobiaslins/mpay24-node#readme",
   "dependencies": {
+    "js2xmlparser": "^2.0.2",
     "soap": "^0.17.0"
   }
 }
