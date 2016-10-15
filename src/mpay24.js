@@ -69,8 +69,41 @@ mpay24.prototype = {
     data.mdxi = js2xmlparser.parse('Order', data);
     return this.createSoapRequest('SelectPayment', data);
   },
+  acceptWithdraw(data) {
+    return this.createSoapRequest('AcceptWithdraw', data);
+  },
+  transactionStatus(data) {
+    return this.createSoapRequest('TransactionStatus', data);
+  },
+  transactionConfirmation(data) {
+    return this.createSoapRequest('TransactionConfirmation', data);
+  },
+  transactionHistory(data) {
+    return this.createSoapRequest('TransactionHistory', data);
+  },
+  manualClear(data) {
+    return this.createSoapRequest('ManualClear', data);
+  },
+  manualReverse(data) {
+    return this.createSoapRequest('ManualReverse', data);
+  },
+  manualCredit(data) {
+    return this.createSoapRequest('ManualCredit', data);
+  },
+  listNotCleared() {
+    return this.createSoapRequest('ListNotCleared');
+  },
   listPaymentMethods() {
     return this.createSoapRequest('ListPaymentMethods');
+  },
+  createProfile(data) {
+    return this.createSoapRequest('CreateProfile', data);
+  },
+  listProfiles() {
+    return this.createSoapRequest('ListPaymentMethods');
+  },
+  deleteProfile(data) {
+    return this.createSoapRequest('ListPaymentMethods', data);
   }
 }
 
