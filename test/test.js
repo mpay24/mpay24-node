@@ -4,21 +4,19 @@ const mpay = require('../lib/mpay24.js');
 
 describe('mPAY24 SOAP', function() {
   before(function(done) {
-    mpay.init(process.env.username, process.env.password).then(() => {
+    if(!process.env.USERNAME || !process.env.PASSWORD) {
+      throw new Error('Please set environment variables (Soap login): USERNAME, PASSWORD');
+    }
+    mpay.init(process.env.USERNAME, process.env.PASSWORD).then((data) => {
       done();
-    }).catch(err => {
-      done();
-    });
+    }, done);
   });
   describe('SOAP Calls', function() {
     it('listPaymentMethods', function(done) {
       mpay.listPaymentMethods().then(paymentMethods => {
         assert.equal(paymentMethods.status, 'OK');
         done();
-      }).catch(err => {
-        assert.equal(paymentMethods.status, 'OK');
-        done();
-      });
+      }, done);
     });
     it('createPaymentToken success', function(done) {
       mpay.createPaymentToken({
@@ -31,7 +29,7 @@ describe('mPAY24 SOAP', function() {
         assert.notEqual(data.apiKey, '');
         assert.notEqual(data.location, '');
         done();
-      });
+      }, done);
     });
     it('createPaymentToken wrong template set', function(done) {
       mpay.createPaymentToken({
