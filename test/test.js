@@ -1,3 +1,5 @@
+require('es6-promise').polyfill();
+
 var assert = require('assert');
 
 const mpay = require('../lib/mpay24.js');
