@@ -16,6 +16,9 @@ function keyToUpperCase(obj) {
     var temp;
     if (obj.hasOwnProperty(key)) {
       temp = obj[key];
+      if(typeof temp =='object') {
+        temp = keyToUpperCase(temp);
+      }
       delete obj[key];
       obj[key.charAt(0).toUpperCase() + key.substring(1)] = temp;
     }
@@ -71,6 +74,7 @@ mpay24.prototype = {
     return this.createSoapRequest('AcceptPayment', data);
   },
   selectPayment(data) {
+    data.price = parseFloat(data.price).toFixed(2);
     data = keyToUpperCase(data);
     data.mdxi = js2xmlparser.parse('Order', data);
     return this.createSoapRequest('SelectPayment', data);

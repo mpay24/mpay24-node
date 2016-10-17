@@ -84,5 +84,42 @@ describe('mPAY24 SOAP', function() {
         done();
       });
     });
+    it('selectPayment maximum', function(done) {
+      this.timeout(5000);
+      mpay.selectPayment({
+        tid: 'testing_selectpayment',
+        shoppingCart: {
+          item: [{
+            number: 1,
+            quantity: 1,
+            itemPrice: '1.00',
+          }, {
+            number: 2,
+            quantity: 1,
+            itemPrice: '2.00',
+          }, {
+            number: 3,
+            quantity: 1,
+            itemPrice: '3.00',
+          }],
+        },
+        price: 600,
+      }).then(data => {
+        assert.equal(data.status, 'OK');
+        assert.notEqual(data.location, '');
+        done();
+      });
+    });
+    it('selectPayment with double string price 1.00', function(done) {
+      this.timeout(5000);
+      mpay.selectPayment({
+        tid: 'testing_selectpayment',
+        price: '1.00',
+      }).then(data => {
+        assert.equal(data.status, 'OK');
+        assert.notEqual(data.location, '');
+        done();
+      });
+    });
   });
 });
