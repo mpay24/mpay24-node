@@ -6,7 +6,7 @@ Unoffical mPAY24 node.js SDK
 
 ## Installation
 
-`npm install mpay24-node`
+`npm install mpay24-node --save`
 
 ## Documentation
 
@@ -40,8 +40,8 @@ mpay24.init('merchantID','password', 'TEST').then(() => {
 mpay24.createPaymentToken({
   pType: 'CC',
   templateSet: 'DEFAULT',
-}).then(data => {
-  console.log(data);
+}).then(result => {
+  console.log(result);
 });
 ```
 
@@ -57,8 +57,8 @@ mpay24.acceptPayment({
     currency: 'EUR',
     token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw=',
   }
-}).then(data => {
-  console.log(data);
+}).then(result => {
+  console.log(result);
 }).catch(err => {
   console.error(err);
 });
@@ -72,8 +72,8 @@ mpay24.acceptPayment({
     amount: 100,
     currency: 'EUR',
   }
-}).then(data => {
-  console.log(data);
+}).then(result => {
+  console.log(result);
 }).catch(err => {
   console.error(err);
 });
@@ -85,8 +85,8 @@ mpay24.acceptPayment({
 mpay24.transactionStatus({
   mpayTID: 1111, //from acceptPayment response
   //tid: 'customTransactionID' if unique
-}).then(data => {
-  console.log(data);
+}).then(result => {
+  console.log(result);
 }).catch(err => {
   console.error(err);
 });
