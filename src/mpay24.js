@@ -1,51 +1,50 @@
-'use strict';
-
-let soap = require('soap');
-var js2xmlparser = require('js2xmlparser');
-
-mpay24.mdxi = 'https://www.mpay24.com/soap/etp/1.5/ETP.wsdl';
+const soap = require('soap');
+const js2xmlparser = require('js2xmlparser');
 
 function mpay24() {
   if (!(this instanceof mpay24)) {
     return new mpay24();
   }
+  return this;
 }
 
+mpay24.mdxi = 'https://www.mpay24.com/soap/etp/1.5/ETP.wsdl';
+
 function keyToUpperCase(obj) {
-  for (var key in obj) {
-    var temp;
-    if (obj.hasOwnProperty(key)) {
-      temp = obj[key];
-      if(typeof temp =='object') {
-        temp = keyToUpperCase(temp);
+  for (const key in obj) {
+    if ({}.hasOwnProperty.call(obj, key)) {
+      let temp;
+      if (obj.hasOwnProperty(key)) {
+        temp = obj[key];
+        if (typeof temp === 'object') {
+          temp = keyToUpperCase(temp);
+        }
+        delete obj[key];
+        obj[key.charAt(0).toUpperCase() + key.substring(1)] = temp;
       }
-      delete obj[key];
-      obj[key.charAt(0).toUpperCase() + key.substring(1)] = temp;
     }
   }
   return obj;
 }
 
 mpay24.prototype = {
-  createSoapRequest(method, data) {
-    data = data || {};
+  createSoapRequest(method, data = {}) {
     return new Promise((resolve, reject) => {
       data.merchantID = mpay24.username;
-      mpay24.client[method](data, function(err, data) {
+      mpay24.client[method](data, (err, res) => {
         if (!err) {
-          if(data.status === 'OK') {
-            resolve(data);
+          if (res.status === 'OK') {
+            resolve(res);
           }
-          reject(data);
+          reject(res);
         }
         reject(err);
       });
     });
   },
-  init(username, password, environment) {
-    environment = environment || 'LIVE';
+  init(username, password, environment = 'LIVE') {
     return new Promise((resolve, reject) => {
-      if(!username || !password) {
+      if (!username || !password) {
         reject('Please provide your SOAP user and password');
       }
       const prefix = environment === 'TEST' ? 'test' : 'www';
@@ -53,8 +52,8 @@ mpay24.prototype = {
       const options = {
         endpoint: mpayEndpoint,
       };
-      soap.createClient(mpay24.mdxi, options, function(err, client) {
-        if(!err) {
+      soap.createClient(mpay24.mdxi, options, (err, client) => {
+        if (!err) {
           client.setSecurity(new soap.BasicAuthSecurity(username, password));
           mpay24.client = client;
           mpay24.username = username.substr(1);
@@ -64,12 +63,14 @@ mpay24.prototype = {
       });
     });
   },
+
+
   createPaymentToken(data) {
     return this.createSoapRequest('CreatePaymentToken', data);
   },
   acceptPayment(data) {
-    data.payment['attributes'] = {
-      'xsi:type': 'etp:Payment'+data.pType,
+    data.payment.attributes = {
+      'xsi:type': `etp:Payment${data.pType}`,
     };
     return this.createSoapRequest('AcceptPayment', data);
   },
@@ -114,7 +115,7 @@ mpay24.prototype = {
   },
   deleteProfile(data) {
     return this.createSoapRequest('ListPaymentMethods', data);
-  }
-}
+  },
+};
 
 module.exports = new mpay24();
