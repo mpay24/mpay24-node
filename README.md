@@ -22,8 +22,12 @@ The SDK is using the mPAY24 soap interface.
 So you need to initialize the SDK
 
 The parameter of the `init` method are the soap username and password
+
+The third optional parameter is the environment. The parameter can be set to `TEST` or `LIVE`.
+If the parameter is not set, the default is LIVE.
+
 ```js
-mpay24.init('USERNAME','PASSWORD').then(() => {
+mpay24.init('USERNAME','PASSWORD', 'TEST').then(() => {
   //now all methods can be used
 }).catch(err => {
   console.error(err);
@@ -89,6 +93,13 @@ mpay24.transactionStatus({
 ```
 
 ## Testing
+Environment variables need to be set in order to run the tests
+
+`USER` is the soap username starting with `u`
+
+`PASSWORD` is the soap password
+
+`ENV` can be `TEST` or `LIVE` to run tests again live or testsystem
 
 ```js
 > npm run build
