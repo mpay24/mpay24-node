@@ -39,12 +39,18 @@ mpay24.prototype = {
       });
     });
   },
-  init(username, password) {
+  init(username, password, environment) {
+    environment = environment || 'LIVE';
     return new Promise((resolve, reject) => {
       if(!username || !password) {
-        reject('Please provide your SOAP username and password');
+        reject('Please provide your SOAP user and password');
       }
-      soap.createClient(mpay24.mdxi, function(err, client) {
+      const prefix = environment === 'TEST' ? 'test' : 'www';
+      const mpayEndpoint = `https://${prefix}.mpay24.com/app/bin/etpproxy_v15`;
+      const options = {
+        endpoint: mpayEndpoint,
+      };
+      soap.createClient(mpay24.mdxi, options, function(err, client) {
         if(!err) {
           client.setSecurity(new soap.BasicAuthSecurity(username, password));
           mpay24.client = client;

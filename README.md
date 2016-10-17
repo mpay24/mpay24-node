@@ -87,3 +87,10 @@ mpay24.transactionStatus({
   console.error(err);
 });
 ```
+
+## Testing
+
+```js
+> npm run build
+> USER=uXXXXX PASSWORD=XXXXXX ENV=TEST npm run test
+```
