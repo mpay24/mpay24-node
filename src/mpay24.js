@@ -54,9 +54,9 @@ mpay24.prototype = {
       };
       soap.createClient(mpay24.mdxi, options, (err, client) => {
         if (!err) {
-          client.setSecurity(new soap.BasicAuthSecurity(username, password));
+          client.setSecurity(new soap.BasicAuthSecurity(`u${username}`, password));
           mpay24.client = client;
-          mpay24.username = username.substr(1);
+          mpay24.username = username;
           resolve();
         }
         reject('Client could not be created. Please contact support');
@@ -100,6 +100,9 @@ mpay24.prototype = {
   },
   manualCredit(data) {
     return this.createSoapRequest('ManualCredit', data);
+  },
+  manualCallback(data) {
+    return this.createSoapRequest('ManualCallback', data);
   },
   listNotCleared() {
     return this.createSoapRequest('ListNotCleared');

@@ -5,5 +5,13 @@
     "no-param-reassign": 0,
     "new-cap": 0,
     "no-restricted-syntax": 0,
+  },
+  "globals": {
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
   }
 }
