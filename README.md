@@ -27,7 +27,7 @@ mpay24.init('USERNAME','PASSWORD').then(() => {
   //now all methods can be used
 }).catch(err => {
   console.error(err);
-})
+});
 ```
 
 #### Create a token for seamless creditcard payments
