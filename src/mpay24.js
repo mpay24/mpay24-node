@@ -1,6 +1,8 @@
 const soap = require('soap');
 const js2xmlparser = require('js2xmlparser');
 
+const pkg = require('../package.json');
+
 function mpay24() {
   if (!(this instanceof mpay24)) {
     return new mpay24();
@@ -54,6 +56,7 @@ mpay24.prototype = {
       };
       soap.createClient(mpay24.mdxi, options, (err, client) => {
         if (!err) {
+          client.addHttpHeader('User-Agent', `mpay24-node ${pkg.version}`);
           client.setSecurity(new soap.BasicAuthSecurity(`u${username}`, password));
           mpay24.client = client;
           mpay24.username = username;
