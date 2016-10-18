@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel -d ./lib src",
     "prepublish": "npm run build",
-    "test": "npm run build && mocha test/test.js --compilers js:babel-register"
+    "test": "npm run build && mocha test/all.js --compilers js:babel-register"
   },
   "repository": {
     "type": "git",

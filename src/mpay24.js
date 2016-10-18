@@ -1,6 +1,8 @@
 const soap = require('soap');
 const js2xmlparser = require('js2xmlparser');
 
+const helper = require('./helper.js');
+
 const pkg = require('../package.json');
 
 function mpay24() {
@@ -11,23 +13,6 @@ function mpay24() {
 }
 
 mpay24.mdxi = 'https://www.mpay24.com/soap/etp/1.5/ETP.wsdl';
-
-function keyToUpperCase(obj) {
-  for (const key in obj) {
-    if ({}.hasOwnProperty.call(obj, key)) {
-      let temp;
-      if (obj.hasOwnProperty(key)) {
-        temp = obj[key];
-        if (typeof temp === 'object') {
-          temp = keyToUpperCase(temp);
-        }
-        delete obj[key];
-        obj[key.charAt(0).toUpperCase() + key.substring(1)] = temp;
-      }
-    }
-  }
-  return obj;
-}
 
 mpay24.prototype = {
   createSoapRequest(method, data = {}) {
@@ -78,8 +63,9 @@ mpay24.prototype = {
     return this.createSoapRequest('AcceptPayment', data);
   },
   selectPayment(data) {
-    data.price = parseFloat(data.price).toFixed(2);
-    data = keyToUpperCase(data);
+    if (helper.isInt(data.price)) data.price = data.price / 100;
+    data.price = helper.stringToFloat(data.price);
+    data = helper.keyToUpperCase(data);
     data.mdxi = js2xmlparser.parse('Order', data);
     return this.createSoapRequest('SelectPayment', data);
   },

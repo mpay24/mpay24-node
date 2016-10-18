@@ -1,3 +1,5 @@
+/* eslint no-console: ["error", { allow: ["info", "error"] }] */
+
 require('es6-promise').polyfill();
 
 const assert = require('assert');
@@ -20,7 +22,10 @@ describe('mPAY24 SOAP', () => {
     mpay.listPaymentMethods().then(paymentMethods => {
       assert.equal(paymentMethods.status, 'OK');
       done();
-    }, done);
+    }).catch(err => {
+      console.error(err);
+      done();
+    });
   });
   it('createPaymentToken success', (done) => {
     mpay.createPaymentToken({
@@ -33,7 +38,10 @@ describe('mPAY24 SOAP', () => {
       assert.notEqual(data.apiKey, '');
       assert.notEqual(data.location, '');
       done();
-    }, done);
+    }).catch(err => {
+      console.error(err);
+      done();
+    });
   });
   it('createPaymentToken wrong template set', (done) => {
     mpay.createPaymentToken({
@@ -59,6 +67,9 @@ describe('mPAY24 SOAP', () => {
     }).then(data => {
       assert.equal(data.status, 'OK');
       done();
+    }).catch(err => {
+      console.error(err);
+      done();
     });
   });
   it('acceptPayment CC wrong identifier', (done) => {
@@ -72,9 +83,6 @@ describe('mPAY24 SOAP', () => {
         identifier: '55554444333311111',
         expiry: 2507,
       },
-    }).then(data => {
-      assert.equal(data.status, 'OK');
-      done();
     }).catch(err => {
       assert.equal(err.status, 'ERROR');
       assert.equal(err.returnCode, 'INVALID_CREDITCARD_NUMBER');
@@ -83,26 +91,60 @@ describe('mPAY24 SOAP', () => {
   });
   it('selectPayment maximum', (done) => {
     mpay.selectPayment({
-      tid: 'testing_selectpayment',
+      clientIP: '208.67.222.222',
+      tid: '90021',
       shoppingCart: {
+        description: 'Example shopping cart',
         item: [{
-          number: 1,
-          quantity: 1,
-          itemPrice: '1.00',
-        }, {
-          number: 2,
-          quantity: 1,
-          itemPrice: '2.00',
-        }, {
-          number: 3,
-          quantity: 1,
-          itemPrice: '3.00',
+          ProductNr: '001',
+          description: 'Test product A',
+          quantity: 2,
+          itemPrice: {
+            '@': {
+              tax: '1.00',
+            },
+            '#': '6.00',
+          },
         }],
+        subTotal: '22.80',
+        discount: '-5.00',
+        shippingCosts: '7.50',
+        tax: '5.05',
       },
-      price: 600,
+      price: '6.00',
+      billingAddr: {
+        '@': {
+          mode: 'ReadOnly',
+        },
+        name: {
+          '@': {
+            gender: 'M',
+            birthday: '1990-01-31',
+          },
+          '#': 'John Doe',
+        },
+        street: 'Main street 1',
+        zip: '1010',
+        city: 'Vienna',
+        country: {
+          '@': {
+            code: 'AT',
+          },
+        },
+        email: 'billing@mpay24.test',
+        phone: '+4368012345678',
+      },
+      URL: {
+        success: 'http://www.hotelmuster.at/succ.php',
+        error: 'http://www.hotelmuster.at/err.php',
+        confirmation: 'http://www.hotelmuster.at/conf.php',
+      },
     }).then(data => {
       assert.equal(data.status, 'OK');
       assert.notEqual(data.location, '');
+      done();
+    }).catch(err => {
+      console.error(err);
       done();
     });
   });
@@ -113,6 +155,9 @@ describe('mPAY24 SOAP', () => {
     }).then(data => {
       assert.equal(data.status, 'OK');
       assert.notEqual(data.location, '');
+      done();
+    }).catch(err => {
+      console.error(err);
       done();
     });
   });
