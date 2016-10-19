@@ -1,7 +1,8 @@
-const helper = require('../lib/helper.js');
-const assert = require('assert');
+const assert = require('assert')
 
-describe('Helper functions', () => {
+const helper = require('../lib/helper.js')
+
+export default () => {
   describe('keyToUpperCase', () => {
     const test = {
       atest: 'A',
@@ -11,30 +12,30 @@ describe('Helper functions', () => {
           ztest: 'Z',
         },
       },
-    };
-    const newData = helper.keyToUpperCase(test);
+    }
+    const newData = helper.keyToUpperCase(test)
     it('lower to upper', () => {
-      assert.equal(newData.hasOwnProperty('Atest'), true);
-    });
+      assert.equal({}.hasOwnProperty.call(newData, 'Atest'), true)
+    })
     it('upper should stay', () => {
-      assert.equal(newData.hasOwnProperty('Btest'), true);
-    });
+      assert.equal({}.hasOwnProperty.call(newData, 'Btest'), true)
+    })
     it('recursive should work', () => {
-      assert.equal(newData.Xtest.Ytest.hasOwnProperty('Ztest'), true);
-    });
-  });
+      assert.equal({}.hasOwnProperty.call(newData.Xtest.Ytest, 'Ztest'), true)
+    })
+  })
   describe('isInt', () => {
     it('string 1.00', () => {
-      assert.equal(helper.isInt('1.00'), false);
-    });
+      assert.equal(helper.isInt('1.00'), false)
+    })
     it('string 100', () => {
-      assert.equal(helper.isInt('100'), false);
-    });
+      assert.equal(helper.isInt('100'), false)
+    })
     it('int 100', () => {
-      assert.equal(helper.isInt(100), true);
-    });
+      assert.equal(helper.isInt(100), true)
+    })
     it('float 1.00', () => {
-      assert.equal(helper.isInt(1.00), true);
-    });
-  });
-});
+      assert.equal(helper.isInt(1.00), true)
+    })
+  })
+}
