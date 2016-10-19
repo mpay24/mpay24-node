@@ -10,13 +10,14 @@ Unoffical mPAY24 node.js SDK
 
 ## Documentation
 
-Documentation is available at https://docs.mpay24.com/docs/node.
+A short demo implementation guide is available at https://docs.mpay24.com/docs/get-started
+Documentation is available at https://docs.mpay24.com/docs.
 
 ## SDK Overview
 
 First it is necessary to include the library:
 ```js
-var mpay24 = require('mpay24-node');
+const mpay24 = require('mpay24-node')
 ```
 The SDK is using the mPAY24 soap interface.
 So you need to initialize the SDK
@@ -30,8 +31,8 @@ If the parameter is not set, the default is LIVE.
 mpay24.init('merchantID','password', 'TEST').then(() => {
   //now all methods can be used
 }).catch(err => {
-  console.error(err);
-});
+  console.error(err)
+})
 ```
 
 #### Create a token for seamless creditcard payments
@@ -41,8 +42,8 @@ mpay24.createPaymentToken({
   pType: 'CC',
   templateSet: 'DEFAULT',
 }).then(result => {
-  console.log(result);
-});
+  console.log(result)
+})
 ```
 
 #### Create a payment
@@ -58,10 +59,10 @@ mpay24.acceptPayment({
     token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw=',
   }
 }).then(result => {
-  console.log(result);
+  console.log(result)
 }).catch(err => {
-  console.error(err);
-});
+  console.error(err)
+})
 ```
 Paypal payment
 ```js
@@ -73,10 +74,10 @@ mpay24.acceptPayment({
     currency: 'EUR',
   }
 }).then(result => {
-  console.log(result);
+  console.log(result)
 }).catch(err => {
-  console.error(err);
-});
+  console.error(err)
+})
 ```
 
 #### Get the current transaction status
@@ -84,12 +85,12 @@ mpay24.acceptPayment({
 ```js
 mpay24.transactionStatus({
   mpayTID: 1111, //from acceptPayment response
-  //tid: 'customTransactionID' if unique
+  //tid: 'customTransactionID', if unique
 }).then(result => {
-  console.log(result);
+  console.log(result)
 }).catch(err => {
-  console.error(err);
-});
+  console.error(err)
+})
 ```
 
 ## Testing
