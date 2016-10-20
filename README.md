@@ -1,6 +1,6 @@
 # mpay24-node
 
-[![Build Status](https://travis-ci.com/tobiaslins/mpay24-node.svg?token=peDG6G3LXx2xP4jx5E91&branch=master)](https://travis-ci.com/tobiaslins/mpay24-node)
+[![Build Status](https://travis-ci.com/tobiaslins/mpay24-node.svg?token=peDG6G3LXx2xP4jx5E91&branch=master)](https://travis-ci.com/tobiaslins/mpay24-node) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 Unoffical mPAY24 node.js SDK
 
