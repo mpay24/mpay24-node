@@ -29,7 +29,7 @@ If the parameter is not set, the default is LIVE.
 
 ```js
 mpay24.init('merchantID','password', 'TEST').then(() => {
-  //now all methods can be used
+  // now all methods can be used
 }).catch(err => {
   console.error(err)
 })
@@ -84,8 +84,8 @@ mpay24.acceptPayment({
 
 ```js
 mpay24.transactionStatus({
-  mpayTID: 1111, //from acceptPayment response
-  //tid: 'customTransactionID', if unique
+  mpayTID: 1111, // from acceptPayment response
+  // tid: 'customTransactionID', if unique
 }).then(result => {
   console.log(result)
 }).catch(err => {
