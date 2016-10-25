@@ -10,7 +10,7 @@ Unoffical mPAY24 node.js SDK
 
 ## Documentation
 
-A short demo implementation guide is available at https://docs.mpay24.com/docs/get-started
+A short demo implementation guide is available at https://docs.mpay24.com/docs/get-started</br>
 Documentation is available at https://docs.mpay24.com/docs.
 
 ## SDK Overview
@@ -96,10 +96,8 @@ mpay24.transactionStatus({
 ## Testing
 Environment variables need to be set in order to run the tests
 
-`USER` is the merchantID
-
-`PASSWORD` is the soap password
-
+`USER` is the merchantID</br>
+`PASSWORD` is the soap password</br>
 `ENV` can be `TEST` or `LIVE` to run tests again live or testsystem
 
 ```js
