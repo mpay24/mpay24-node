@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tobiaslins/mpay24-node.git"
+    "url": "git+https://github.com/mpay24/mpay24-node.git"
   },
   "babel": {
     "presets": [
@@ -33,9 +33,9 @@
   "author": "Tobias Lins",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tobiaslins/mpay24-node/issues"
+    "url": "https://github.com/mpay24/mpay24-node/issues"
   },
-  "homepage": "https://github.com/tobiaslins/mpay24-node#readme",
+  "homepage": "https://github.com/mpay24/mpay24-node#readme",
   "dependencies": {
     "es6-promise": "^4.0.5",
     "js2xmlparser": "^2.0.2",
