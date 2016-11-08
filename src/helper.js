@@ -24,6 +24,15 @@ function stringToFloat(string) {
 }
 
 function formatResult(result) {
+  for (const param in result) {
+    if ({}.hasOwnProperty.call(result, param)) {
+      const newParameterName = param.toLowerCase()
+      if (param !== newParameterName) {
+        result[param.toLowerCase()] = result[param]
+        delete result[param]
+      }
+    }
+  }
   let parameter = ''
   for (const param in result.parameter) {
     if ({}.hasOwnProperty.call(result.parameter, param)) {

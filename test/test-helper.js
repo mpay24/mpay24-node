@@ -35,3 +35,21 @@ test('int 100', t => {
 test('float 1.00', t => {
   t.is(helper.isInt(1.00), true)
 })
+test('reformat transactionstatus response', t => {
+  const req = {
+    TID: '123',
+    parameter: [
+      {
+        name: 'Status',
+        value: 'BILLED',
+      },
+    ],
+  }
+
+  const expected = {
+    tid: '123',
+    status: 'BILLED',
+  }
+  const formatted = helper.formatResult(req)
+  t.deepEqual(formatted, expected)
+})

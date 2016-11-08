@@ -146,3 +146,26 @@ test('selectPayment with double string price 1.00', async t => {
   t.is(data.status, 'OK')
   t.not(data.location, '')
 })
+
+test('acceptPayment with transactionStatus OK', async t => {
+  const randomTID = Math.random()
+  const acceptPaymentRequest = {
+    tid: `${randomTID}`,
+    pType: 'CC',
+    payment: {
+      amount: 100,
+      brand: 'MASTERCARD',
+      expiry: 2507,
+      identifier: '5555444433331111',
+      currency: 'EUR',
+    },
+  }
+  const data = await mpay.acceptPayment(acceptPaymentRequest)
+  t.is(data.status, 'OK')
+  const txStatusRequest = {
+    tid: `${randomTID}`,
+  }
+  const transactionStatusResponse = await mpay.transactionStatus(txStatusRequest)
+  t.is(transactionStatusResponse.status, 'BILLED')
+  t.is(transactionStatusResponse.tid, `${randomTID}`)
+})
