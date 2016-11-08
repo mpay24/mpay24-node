@@ -39,7 +39,7 @@ mpay24.prototype = {
       }
       soap.createClient(mpay24.wsdl, options, (err, client) => {
         if (!err) {
-          client.addHttpHeader('User-Agent', `mpay24-node ${pkg.version}`)
+          client.addHttpHeader('User-Agent', `mpay24-node/${pkg.version}`)
           client.setSecurity(new soap.BasicAuthSecurity(`u${username}`, password))
           mpay24.client = client
           mpay24.username = username
