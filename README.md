@@ -101,6 +101,5 @@ Environment variables need to be set in order to run the tests
 `ENV` can be `TEST` or `LIVE` to run tests again live or testsystem
 
 ```js
-> npm run build
-> USER=uXXXXX PASSWORD=XXXXXX ENV=TEST npm run test
+> USER=XXXXX PASSWORD=XXXXXX ENV=TEST npm run test
 ```
