@@ -23,8 +23,20 @@ function stringToFloat(string) {
   return parseFloat(string).toFixed(2)
 }
 
+function formatResult(result) {
+  let parameter = ''
+  for (const param in result.parameter) {
+    if ({}.hasOwnProperty.call(result.parameter, param)) {
+      parameter = result.parameter[param]
+      result[parameter.name.toLowerCase()] = parameter.value
+    }
+  }
+  delete result.parameter
+  return result
+}
 module.exports = {
   keyToUpperCase,
   isInt,
   stringToFloat,
+  formatResult,
 }
