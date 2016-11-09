@@ -72,7 +72,13 @@ mpay24.prototype = {
     return this.createSoapRequest('AcceptWithdraw', data)
   },
   transactionStatus(data) {
-    return this.createSoapRequest('TransactionStatus', data)
+    return new Promise((resolve, reject) => {
+      this.createSoapRequest('TransactionStatus', data).then(result => {
+        resolve(helper.formatResult(result))
+      }).catch(err => {
+        reject(err)
+      })
+    })
   },
   transactionConfirmation(data) {
     return this.createSoapRequest('TransactionConfirmation', data)
