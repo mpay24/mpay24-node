@@ -1,6 +1,6 @@
 # mpay24-node
 
-[![Build Status](https://travis-ci.org/mpay24/mpay24-node.svg?branch=master)](https://travis-ci.org/mpay24/mpay24-node) [![Github All Releases](https://img.shields.io/github/downloads/mpay24/mpay24-node/total.svg)](https://www.npmjs.com/package/mpay24-node) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![Build Status](https://travis-ci.org/mpay24/mpay24-node.svg?branch=master)](https://travis-ci.org/mpay24/mpay24-node)[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 Offical mPAY24 node.js SDK
 
