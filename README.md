@@ -93,6 +93,24 @@ mpay24.transactionStatus({
 })
 ```
 
+#### Initialize a Payment Page
+
+```js
+mpay24.selectPayment({
+  tid: '123456',
+  price: '1.00',
+  URL: {
+    success: 'https://yourpage.com/success',
+    error: 'https://yourpage.com/error',
+    confirmation: 'https://yourpage.com/confirm',
+  },
+}).then(result => {
+  console.log(result)
+}).catch(err => {
+  console.error(err)
+})
+```
+
 ## Testing
 Environment variables need to be set in order to run the tests
 
