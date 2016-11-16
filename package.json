@@ -20,6 +20,7 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {
+      ".*": "./node_modules/babel-jest",
       ".*": "./node_modules/async-to-gen"
     },
     "setupTestFrameworkScriptFile": "./jenkinsreporter.js"
