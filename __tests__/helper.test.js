@@ -1,5 +1,3 @@
-import test from 'ava'
-
 const helper = require('../lib/helper.js')
 
 const data = {
@@ -14,42 +12,44 @@ const data = {
 
 const newData = helper.keyToUpperCase(data)
 
-test('lower to upper', () => {
-  expect({}.hasOwnProperty.call(newData, 'Atest')).toBe(true)
+describe('helper-tests', () => {
+  it('lower to upper', () => {
+    expect({}.hasOwnProperty.call(newData, 'Atest')).toBe(true)
+  })
+  it('upper should stay', () => {
+    expect({}.hasOwnProperty.call(newData, 'Btest')).toBe(true)
+  })
+  it('recursive should work', () => {
+    expect({}.hasOwnProperty.call(newData.Xtest.Ytest, 'Ztest')).toBe(true)
+  })
+  it('string 1.00', () => {
+    expect(helper.isInt('1.00')).toBe(false)
+  })
+  it('string 100', () => {
+    expect(helper.isInt('100')).toBe(false)
+  })
+  it('int 100', () => {
+    expect(helper.isInt(100)).toBe(true)
+  })
+  it('float 1.00', () => {
+    expect(helper.isInt(1.00)).toBe(true)
+  })
+  it('reformat transactionstatus response', () => {
+    const req = {
+      TID: '123',
+      parameter: [
+        {
+          name: 'Status',
+          value: 'BILLED',
+        },
+      ],
+    }
+
+    const expected = {
+      tid: '123',
+      status: 'BILLED',
+    }
+    const formatted = helper.formatResult(req)
+    expect(formatted).toEqual(expected)
+  })
 })
-// test('upper should stay', t => {
-//   t.is({}.hasOwnProperty.call(newData, 'Btest'), true)
-// })
-// test('recursive should work', t => {
-//   t.is({}.hasOwnProperty.call(newData.Xtest.Ytest, 'Ztest'), true)
-// })
-// test('string 1.00', t => {
-//   t.is(helper.isInt('1.00'), false)
-// })
-// test('string 100', t => {
-//   t.is(helper.isInt('100'), false)
-// })
-// test('int 100', t => {
-//   t.is(helper.isInt(100), true)
-// })
-// test('float 1.00', t => {
-//   t.is(helper.isInt(1.00), true)
-// })
-// test('reformat transactionstatus response', t => {
-//   const req = {
-//     TID: '123',
-//     parameter: [
-//       {
-//         name: 'Status',
-//         value: 'BILLED',
-//       },
-//     ],
-//   }
-//
-//   const expected = {
-//     tid: '123',
-//     status: 'BILLED',
-//   }
-//   const formatted = helper.formatResult(req)
-//   t.deepEqual(formatted, expected)
-// })
