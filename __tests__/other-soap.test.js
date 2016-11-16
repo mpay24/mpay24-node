@@ -1,3 +1,5 @@
+'use strict'
+
 const mpay = require('../lib/mpay24.js')
 
 beforeAll(async () => {
