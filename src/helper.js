@@ -43,6 +43,7 @@ function formatResult(result) {
   delete result.parameter
   return result
 }
+
 module.exports = {
   keyToUpperCase,
   isInt,
