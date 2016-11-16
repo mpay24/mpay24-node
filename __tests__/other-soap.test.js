@@ -14,4 +14,13 @@ describe('others', () => {
     const paymentMethods = await mpay.listPaymentMethods()
     expect(paymentMethods.status).toBe('OK')
   })
+  it('init without username and password', async () => {
+    let error = false
+    try {
+      await mpay.init()
+    } catch (err) {
+      error = true
+    }
+    expect(error).toBe(true)
+  })
 })

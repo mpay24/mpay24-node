@@ -77,4 +77,13 @@ describe('payment-page', () => {
     expect(data.status).toBe('OK')
     expect(data.location).not.toBe('')
   })
+  it('selectPayment with int price 100', async () => {
+    const req = {
+      tid: 'testing_selectpayment',
+      price: 100,
+    }
+    const data = await mpay.selectPayment(req)
+    expect(data.status).toBe('OK')
+    expect(data.location).not.toBe('')
+  })
 })
