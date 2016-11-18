@@ -48,7 +48,8 @@
       "jest"
     ],
     "env": [
-      "node"
+      "node",
+      "jest"
     ]
   },
   "author": "Tobias Lins",
