@@ -8,10 +8,7 @@
     "prepublish": "npm run build",
     "test": "xo && npm run build && jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mpay24/mpay24-node.git"
-  },
+  "repository": "mpay24/mpay24-node",
   "babel": {
     "presets": [
       "es2015"
@@ -44,22 +41,17 @@
     "global": [
       "expect",
       "beforeAll",
-      "jasmine",
-      "jest"
+      "jasmine"
     ],
     "env": [
       "node",
       "jest"
     ]
   },
-  "author": "Tobias Lins",
+  "author": "Tobias Lins <tobias.lins@mpay24.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mpay24/mpay24-node/issues"
-  },
   "homepage": "https://github.com/mpay24/mpay24-node#readme",
   "dependencies": {
-    "es6-promise": "^4.0.5",
     "js2xmlparser": "^2.0.2",
     "soap": "^0.17.0"
   },
