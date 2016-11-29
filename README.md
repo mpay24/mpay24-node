@@ -57,7 +57,7 @@ mpay24.acceptPayment({
     amount: 100,
     currency: 'EUR',
     token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw=',
-  }
+  },
 }).then(result => {
   console.log(result)
 }).catch(err => {
@@ -72,7 +72,7 @@ mpay24.acceptPayment({
   payment: {
     amount: 100,
     currency: 'EUR',
-  }
+  },
 }).then(result => {
   console.log(result)
 }).catch(err => {
