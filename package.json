@@ -1,6 +1,6 @@
 {
   "name": "mpay24-node",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "mPAY24 SDK",
   "main": "lib/mpay24.js",
   "scripts": {
@@ -53,7 +53,7 @@
   "homepage": "https://github.com/mpay24/mpay24-node#readme",
   "dependencies": {
     "js2xmlparser": "^2.0.2",
-    "soap": "^0.17.0"
+    "soap": "^0.18.0"
   },
   "devDependencies": {
     "async-to-gen": "^1.1.4",
