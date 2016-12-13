@@ -45,8 +45,7 @@ mpay24.prototype = {
           mpay24.username = username
           resolve()
         }
-        console.error(err)
-        reject('Client could not be created.')
+        reject(err)
       })
     })
   },
