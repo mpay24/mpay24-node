@@ -45,7 +45,7 @@ mpay24.prototype = {
           mpay24.username = username
           resolve()
         }
-        reject('Client could not be created. Please contact support')
+        reject('Client could not be created.')
       })
     })
   },
