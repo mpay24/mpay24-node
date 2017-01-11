@@ -11,7 +11,7 @@ Offical mPAY24 node.js SDK
 ## Documentation
 
 A short demo implementation guide is available at https://docs.mpay24.com/docs/get-started</br>
-Documentation is available at https://docs.mpay24.com/docs.
+Documentation is available at https://docs.mpay24.com/docs
 
 ## SDK Overview
 
@@ -19,7 +19,7 @@ First it is necessary to include the library:
 ```js
 const mpay24 = require('mpay24-node')
 ```
-The SDK is using the mPAY24 soap interface.
+The SDK is using the mPAY24 SOAP interface.
 So you need to initialize the SDK
 
 The parameter of the `init` method are the `merchantID` and `password`
