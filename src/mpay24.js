@@ -32,8 +32,19 @@ mpay24.prototype = {
       if (!username || !password) {
         reject('Please provide your SOAP user and password')
       }
-      const prefix = environment === 'TEST' ? 'test' : 'www'
-      const mpayEndpoint = `https://${prefix}.mpay24.com/app/bin/etpproxy_v15`
+      const ep = '/app/bin/etpproxy_v15'
+      let mpayEndpoint
+      switch (environment) {
+        case 'TEST':
+          mpayEndpoint = `https://test.mpay24.com${ep}`
+          break
+        case 'LIVE':
+          mpayEndpoint = `https://www.mpay24.com${ep}`
+          break
+        default:
+          mpayEndpoint = `${environment}${ep}`
+          break
+      }
       const options = {
         endpoint: mpayEndpoint,
       }
