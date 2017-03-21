@@ -64,6 +64,7 @@ mpay24.acceptPayment({
   console.error(err)
 })
 ```
+
 Paypal payment
 ```js
 mpay24.acceptPayment({
@@ -73,6 +74,43 @@ mpay24.acceptPayment({
     amount: 100,
     currency: 'EUR',
   },
+}).then(result => {
+  console.log(result)
+}).catch(err => {
+  console.error(err)
+})
+```
+
+#### Create a customer and charge a customer (recurring profile)
+
+Create customer with token
+```js
+mpay24.acceptPayment({
+  tid: 'customTransactionID',
+  pType: 'TOKEN',
+  payment: {
+    amount: 100,
+    currency: 'EUR',
+    token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw=',
+    useProfile: true
+  },
+  customerID: 'customer-123'
+}).then(result => {
+  console.log(result)
+}).catch(err => {
+  console.error(err)
+})
+```
+Charge the created customer
+```js
+mpay24.acceptPayment({
+  tid: 'profilepayment',
+  pType: 'PROFILE',
+  payment: {
+    amount: 100,
+    currency: 'EUR'
+  },
+  customerID: 'customer-123'
 }).then(result => {
   console.log(result)
 }).catch(err => {
