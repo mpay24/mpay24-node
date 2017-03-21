@@ -119,10 +119,10 @@ mpay24.prototype = {
     return this.createSoapRequest('CreateProfile', data)
   },
   listProfiles() {
-    return this.createSoapRequest('ListPaymentMethods')
+    return this.createSoapRequest('ListProfiles')
   },
   deleteProfile(data) {
-    return this.createSoapRequest('ListPaymentMethods', data)
+    return this.createSoapRequest('DeleteProfile', data)
   },
 }
 
