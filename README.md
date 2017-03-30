@@ -40,7 +40,7 @@ mpay24.init('merchantID','password', 'TEST').then(() => {
 ```js
 mpay24.createPaymentToken({
   pType: 'CC',
-  templateSet: 'DEFAULT',
+  templateSet: 'DEFAULT'
 }).then(result => {
   console.log(result)
 })
@@ -56,8 +56,8 @@ mpay24.acceptPayment({
   payment: {
     amount: 100,
     currency: 'EUR',
-    token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw=',
-  },
+    token: 'y2hUtk9fn3mhv2yVox0yarawKzWQv0+vf/cp1NuzxFw='
+  }
 }).then(result => {
   console.log(result)
 }).catch(err => {
@@ -72,8 +72,8 @@ mpay24.acceptPayment({
   pType: 'PAYPAL',
   payment: {
     amount: 100,
-    currency: 'EUR',
-  },
+    currency: 'EUR'
+  }
 }).then(result => {
   console.log(result)
 }).catch(err => {
@@ -123,7 +123,7 @@ mpay24.acceptPayment({
 ```js
 mpay24.transactionStatus({
   mpayTID: 1111, // from acceptPayment response
-  // tid: 'customTransactionID', if unique
+  // tid: 'customTransactionID'
 }).then(result => {
   console.log(result)
 }).catch(err => {
@@ -140,8 +140,8 @@ mpay24.selectPayment({
   URL: {
     success: 'https://yourpage.com/success',
     error: 'https://yourpage.com/error',
-    confirmation: 'https://yourpage.com/confirm',
-  },
+    confirmation: 'https://yourpage.com/confirm'
+  }
 }).then(result => {
   console.log(result)
 }).catch(err => {
