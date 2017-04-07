@@ -15,7 +15,7 @@ Documentation is available at https://docs.mpay24.com/docs
 
 ## SDK Overview
 
-First it is necessary to include the library:
+First, it is necessary to include the library:
 ```js
 const mpay24 = require('mpay24-node')
 ```
@@ -35,7 +35,7 @@ mpay24.init('merchantID','password', 'TEST').then(() => {
 })
 ```
 
-#### Create a token for seamless creditcard payments
+#### Create a token for seamless credit card payments
 
 ```js
 mpay24.createPaymentToken({
@@ -150,7 +150,7 @@ mpay24.selectPayment({
 ```
 
 ## Testing
-Environment variables need to be set in order to run the tests
+Environment variables need to be set to run the tests
 
 `USER` is the merchantID</br>
 `PASSWORD` is the soap password</br>
