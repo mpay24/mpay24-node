@@ -1,6 +1,6 @@
 {
   "name": "mpay24-node",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "mPAY24 SDK",
   "main": "lib/mpay24.js",
   "scripts": {
@@ -17,7 +17,6 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {
-      ".*": "./node_modules/babel-jest",
       ".*": "./node_modules/async-to-gen"
     },
     "setupTestFrameworkScriptFile": "./jenkinsreporter.js"
@@ -53,7 +52,7 @@
   "homepage": "https://github.com/mpay24/mpay24-node#readme",
   "dependencies": {
     "js2xmlparser": "^2.0.2",
-    "soap": "^0.18.0"
+    "soap": "^0.19.0"
   },
   "devDependencies": {
     "async-to-gen": "^1.1.4",
