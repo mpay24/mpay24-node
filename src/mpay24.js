@@ -10,7 +10,7 @@ function mpay24() {
   return this
 }
 
-mpay24.wsdl = 'https://www.mpay24.com/soap/etp/1.5/ETP.wsdl'
+mpay24.wsdlurl = 'https://www.mpay24.com/soap/etp/1.5/ETP.wsdl'
 
 mpay24.prototype = {
   createSoapRequest(method, data = {}) {
@@ -48,7 +48,7 @@ mpay24.prototype = {
       const options = {
         endpoint: mpayEndpoint,
       }
-      soap.createClient(mpay24.wsdl, options, (err, client) => {
+      soap.createClient(mpay24.wsdlurl, options, (err, client) => {
         if (!err) {
           client.addHttpHeader('User-Agent', `mpay24-node/${pkg.version}`)
           client.setSecurity(new soap.BasicAuthSecurity(`u${username}`, password))
