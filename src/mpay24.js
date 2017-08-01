@@ -46,12 +46,14 @@ mpay24.prototype = {
           break
       }
       const options = {
-        endpoint: mpayEndpoint,
+        endpoint: mpayEndpoint
       }
       soap.createClient(mpay24.wsdl, options, (err, client) => {
         if (!err) {
           client.addHttpHeader('User-Agent', `mpay24-node/${pkg.version}`)
-          client.setSecurity(new soap.BasicAuthSecurity(`u${username}`, password))
+          client.setSecurity(
+            new soap.BasicAuthSecurity(`u${username}`, password)
+          )
           mpay24.client = client
           mpay24.username = username
           resolve()
@@ -66,9 +68,15 @@ mpay24.prototype = {
   },
   acceptPayment(data) {
     data.payment.attributes = {
-      'xsi:type': `etp:Payment${data.pType}`,
+      'xsi:type': `etp:Payment${data.pType}`
     }
     return this.createSoapRequest('AcceptPayment', data)
+  },
+  createCustomer(data) {
+    data.paymentData.attributes = {
+      'xsi:type': `etp:Payment${data.pType}`
+    }
+    return this.createSoapRequest('CreateCustomer', data)
   },
   selectPayment(data) {
     if (helper.isInt(data.price)) {
@@ -84,11 +92,13 @@ mpay24.prototype = {
   },
   transactionStatus(data) {
     return new Promise((resolve, reject) => {
-      this.createSoapRequest('TransactionStatus', data).then(result => {
-        resolve(helper.formatResult(result))
-      }).catch(err => {
-        reject(err)
-      })
+      this.createSoapRequest('TransactionStatus', data)
+        .then(result => {
+          resolve(helper.formatResult(result))
+        })
+        .catch(err => {
+          reject(err)
+        })
     })
   },
   transactionConfirmation(data) {
@@ -123,7 +133,7 @@ mpay24.prototype = {
   },
   deleteProfile(data) {
     return this.createSoapRequest('DeleteProfile', data)
-  },
+  }
 }
 
 module.exports = new mpay24()

@@ -1,6 +1,6 @@
 {
   "name": "mpay24-node",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "mPAY24 SDK",
   "main": "lib/mpay24.js",
   "scripts": {
@@ -10,9 +10,7 @@
   },
   "repository": "mpay24/mpay24-node",
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "presets": ["es2015"]
   },
   "jest": {
     "testEnvironment": "node",
@@ -26,10 +24,7 @@
     "semicolon": false,
     "space": true,
     "rules": {
-      "comma-dangle": [
-        "error",
-        "always"
-      ],
+      "comma-dangle": ["error", "always"],
       "new-cap": [
         "error",
         {
@@ -37,15 +32,8 @@
         }
       ]
     },
-    "global": [
-      "expect",
-      "beforeAll",
-      "jasmine"
-    ],
-    "env": [
-      "node",
-      "jest"
-    ]
+    "global": ["expect", "beforeAll", "jasmine"],
+    "env": ["node", "jest"]
   },
   "author": "Tobias Lins <tobias.lins@mpay24.com>",
   "license": "MIT",
