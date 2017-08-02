@@ -74,7 +74,7 @@ mpay24.prototype = {
   },
   createCustomer(data) {
     data.paymentData.attributes = {
-      'xsi:type': `etp:Payment${data.pType}`
+      'xsi:type': 'etp:PaymentData' + data.pType
     }
     return this.createSoapRequest('CreateCustomer', data)
   },
