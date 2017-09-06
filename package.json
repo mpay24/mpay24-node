@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel -d ./lib src",
     "prepublish": "npm run build",
-    "test": "xo && npm run build && jest"
+    "test": "npm run build && jest"
   },
   "repository": "mpay24/mpay24-node",
   "babel": {
@@ -18,22 +18,6 @@
       ".*": "./node_modules/async-to-gen"
     },
     "setupTestFrameworkScriptFile": "./jenkinsreporter.js"
-  },
-  "xo": {
-    "esnext": true,
-    "semicolon": false,
-    "space": true,
-    "rules": {
-      "comma-dangle": ["error", "always"],
-      "new-cap": [
-        "error",
-        {
-          "newIsCap": false
-        }
-      ]
-    },
-    "global": ["expect", "beforeAll", "jasmine"],
-    "env": ["node", "jest"]
   },
   "author": "Tobias Lins <tobias.lins@mpay24.com>",
   "license": "MIT",
@@ -49,7 +33,6 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-register": "^6.16.3",
     "jasmine-reporters": "^2.2.0",
-    "jest": "^17.0.2",
-    "xo": "^0.17.0"
+    "jest": "^17.0.2"
   }
 }

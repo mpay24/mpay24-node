@@ -4,7 +4,9 @@ const mpay = require('../lib/mpay24.js')
 
 beforeAll(async () => {
   if (!process.env.USER || !process.env.PASSWORD) {
-    throw new Error('Please set environment variables (soap login): USER, PASSWORD')
+    throw new Error(
+      'Please set environment variables (soap login): USER, PASSWORD'
+    )
   }
   if (!process.env.ENV || process.env.ENV !== 'TEST') {
     console.info('No or wrong environment specified. Using Live System.')

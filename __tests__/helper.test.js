@@ -5,9 +5,9 @@ const data = {
   Btest: 'B',
   xtest: {
     ytest: {
-      ztest: 'Z',
-    },
-  },
+      ztest: 'Z'
+    }
+  }
 }
 
 const newData = helper.keyToUpperCase(data)
@@ -32,7 +32,7 @@ describe('helper-tests', () => {
     expect(helper.isInt(100)).toBe(true)
   })
   it('float 1.00', () => {
-    expect(helper.isInt(1.00)).toBe(true)
+    expect(helper.isInt(1.0)).toBe(true)
   })
   it('reformat transactionstatus response', () => {
     const req = {
@@ -40,14 +40,14 @@ describe('helper-tests', () => {
       parameter: [
         {
           name: 'Status',
-          value: 'BILLED',
-        },
-      ],
+          value: 'BILLED'
+        }
+      ]
     }
 
     const expected = {
       tid: '123',
-      status: 'BILLED',
+      status: 'BILLED'
     }
     const formatted = helper.formatResult(req)
     expect(formatted).toEqual(expected)

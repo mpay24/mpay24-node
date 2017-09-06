@@ -2,7 +2,9 @@ const mpay = require('../lib/mpay24.js')
 
 beforeAll(async () => {
   if (!process.env.USER || !process.env.PASSWORD) {
-    throw new Error('Please set environment variables (soap login): USER, PASSWORD')
+    throw new Error(
+      'Please set environment variables (soap login): USER, PASSWORD'
+    )
   }
   if (!process.env.ENV || process.env.ENV !== 'TEST') {
     console.info('No or wrong environment specified. Using Live System.')
@@ -14,7 +16,7 @@ describe('tokenizer', () => {
   it('createPaymentToken success', async () => {
     const req = {
       pType: 'CC',
-      templateSet: 'DEFAULT',
+      templateSet: 'DEFAULT'
     }
     const data = await mpay.createPaymentToken(req)
     expect(data.status).toBe('OK')
@@ -27,7 +29,7 @@ describe('tokenizer', () => {
   it('createPaymentToken wrong template set', async () => {
     const req = {
       pType: 'CC',
-      templateSet: 'DEFAULT1',
+      templateSet: 'DEFAULT1'
     }
     try {
       await mpay.createPaymentToken(req)

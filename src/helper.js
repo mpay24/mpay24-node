@@ -48,5 +48,5 @@ module.exports = {
   keyToUpperCase,
   isInt,
   stringToFloat,
-  formatResult,
+  formatResult
 }

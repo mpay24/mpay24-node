@@ -2,7 +2,9 @@ const mpay = require('../lib/mpay24.js')
 
 beforeAll(async () => {
   if (!process.env.USER || !process.env.PASSWORD) {
-    throw new Error('Please set environment variables (soap login): USER, PASSWORD')
+    throw new Error(
+      'Please set environment variables (soap login): USER, PASSWORD'
+    )
   }
   if (!process.env.ENV || process.env.ENV !== 'TEST') {
     console.info('No or wrong environment specified. Using Live System.')
@@ -20,8 +22,8 @@ describe('payment', () => {
         brand: 'MASTERCARD',
         expiry: 2507,
         identifier: '5555444433331111',
-        currency: 'EUR',
-      },
+        currency: 'EUR'
+      }
     }
     const data = await mpay.acceptPayment(req)
     expect(data.status).toBe('OK')
@@ -35,8 +37,8 @@ describe('payment', () => {
         currency: 'EUR',
         brand: 'MASTERCARD',
         identifier: '55554444333311111',
-        expiry: 2507,
-      },
+        expiry: 2507
+      }
     }
     try {
       await mpay.acceptPayment(req)
@@ -52,18 +54,21 @@ describe('payment', () => {
       pType: 'CC',
       payment: {
         amount: 100,
+        manualClearing: false,
         brand: 'MASTERCARD',
         expiry: 2507,
         identifier: '5555444433331111',
-        currency: 'EUR',
-      },
+        currency: 'EUR'
+      }
     }
     const data = await mpay.acceptPayment(acceptPaymentRequest)
     expect(data.status).toBe('OK')
     const txStatusRequest = {
-      tid: `${randomTID}`,
+      tid: `${randomTID}`
     }
-    const transactionStatusResponse = await mpay.transactionStatus(txStatusRequest)
+    const transactionStatusResponse = await mpay.transactionStatus(
+      txStatusRequest
+    )
     expect(transactionStatusResponse.status).toBe('BILLED')
     expect(transactionStatusResponse.tid).toBe(`${randomTID}`)
   })
