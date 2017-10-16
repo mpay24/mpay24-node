@@ -33,6 +33,7 @@ mpay24.prototype = {
     return new Promise((resolve, reject) => {
       if (!username || !password) {
         reject('Please provide your SOAP user and password')
+        return
       }
       const ep = '/app/bin/etpproxy_v15'
       let mpayEndpoint
@@ -59,8 +60,9 @@ mpay24.prototype = {
           mpay24.client = client
           mpay24.username = username
           resolve()
+        } else {
+          reject(err)
         }
-        reject(err)
       })
     })
   },
