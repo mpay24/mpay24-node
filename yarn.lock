@@ -1051,10 +1051,6 @@ commander@^2.8.1, commander@^2.9.0:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-compress@^0.99.0:
-  version "0.99.0"
-  resolved "https://registry.yarnpkg.com/compress/-/compress-0.99.0.tgz#97e301c25c4d01f097d85103f65eccb2e7796502"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -1147,9 +1143,11 @@ debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
   dependencies:
     ms "0.7.1"
 
-debug@~0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
+debug@^2.6.9:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
+  dependencies:
+    ms "2.0.0"
 
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
@@ -3301,14 +3299,13 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
-soap@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/soap/-/soap-0.21.0.tgz#3dce99407172a88584f13f4bc61f6027b335b328"
+soap@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/soap/-/soap-0.22.0.tgz#9e9d76b132d1e21f70ba41999aa972cd6114d6b5"
   dependencies:
     bluebird "^3.5.0"
-    compress "^0.99.0"
     concat-stream "^1.5.1"
-    debug "~0.7.4"
+    debug "^2.6.9"
     ejs "~2.5.5"
     finalhandler "^1.0.3"
     lodash "^3.10.1"
