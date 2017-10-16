@@ -20,10 +20,12 @@ mpay24.prototype = {
         if (!err) {
           if (res.status === 'OK') {
             resolve(res)
+          } else {
+            reject(res)
           }
-          reject(res)
+        } else {
+          reject(err)
         }
-        reject(err)
       })
     })
   },
