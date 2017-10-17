@@ -123,17 +123,17 @@ mpay24.prototype = {
   manualCallback(data) {
     return this.createSoapRequest('ManualCallback', data)
   },
-  listNotCleared() {
-    return this.createSoapRequest('ListNotCleared')
+  listNotCleared(data) {
+    return this.createSoapRequest('ListNotCleared', data)
   },
-  listPaymentMethods() {
-    return this.createSoapRequest('ListPaymentMethods')
+  listPaymentMethods(data) {
+    return this.createSoapRequest('ListPaymentMethods', data)
   },
   createProfile(data) {
     return this.createSoapRequest('CreateProfile', data)
   },
-  listProfiles() {
-    return this.createSoapRequest('ListProfiles')
+  listProfiles(data) {
+    return this.createSoapRequest('ListProfiles', data)
   },
   deleteProfile(data) {
     return this.createSoapRequest('DeleteProfile', data)
