@@ -9,17 +9,11 @@
     "test": "npm run build && jest"
   },
   "repository": "mpay24/mpay24-node",
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
   "jest": {
     "testEnvironment": "node",
-    "transform": {
-      ".*": "./node_modules/async-to-gen"
-    },
-    "setupTestFrameworkScriptFile": "./jenkinsreporter.js"
+    "setupFilesAfterEnv": [
+      "./jenkinsreporter.js"
+    ]
   },
   "author": "Tobias Lins <tobias.lins@mpay24.com>",
   "license": "MIT",
@@ -29,12 +23,9 @@
     "soap": "^0.29.0"
   },
   "devDependencies": {
-    "async-to-gen": "^1.4.0",
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^21.0.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.26.0",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
     "jasmine-reporters": "^2.3.2",
-    "jest": "^21.1.0"
+    "jest": "^24.9.0"
   }
 }
