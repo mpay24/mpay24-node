@@ -11,6 +11,9 @@
   "repository": "mpay24/mpay24-node",
   "jest": {
     "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "async-to-gen"
+    },
     "setupFilesAfterEnv": [
       "./jenkinsreporter.js"
     ]
@@ -20,11 +23,12 @@
   "homepage": "https://github.com/mpay24/mpay24-node#readme",
   "dependencies": {
     "js2xmlparser": "^4.0.0",
-    "soap": "^0.29.0"
+    "soap": "^0.30.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
+    "async-to-gen": "^1.4.0",
     "jasmine-reporters": "^2.3.2",
     "jest": "^24.9.0"
   }
