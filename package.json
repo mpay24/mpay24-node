@@ -1,6 +1,6 @@
 {
   "name": "mpay24-node",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "mPAY24 SDK",
   "main": "lib/mpay24.js",
   "scripts": {
