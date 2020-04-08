@@ -30,6 +30,6 @@
     "@babel/core": "^7.7.7",
     "async-to-gen": "^1.4.0",
     "jasmine-reporters": "^2.3.2",
-    "jest": "^24.9.0"
+    "jest": "^25.2.7"
   }
 }
