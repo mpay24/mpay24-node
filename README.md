@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mpay24/mpay24-node.svg?branch=master)](https://travis-ci.org/mpay24/mpay24-node) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![Known Vulnerabilities](https://snyk.io/test/npm/mpay24-node/badge.svg)](https://snyk.io/test/npm/mpay24-node) 
 
-Offical mPAY24 node.js SDK
+Offical Unzer Austria (former mPAY24) node.js SDK
 
 ## Installation
 
@@ -19,7 +19,7 @@ First, it is necessary to include the library:
 ```js
 const mpay24 = require('mpay24-node')
 ```
-The SDK is using the mPAY24 SOAP interface.
+The SDK is using the SOAP interface.
 So you need to initialize the SDK
 
 The parameter of the `init` method are the `merchantID` and `password`
